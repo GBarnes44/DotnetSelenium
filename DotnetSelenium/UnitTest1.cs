@@ -28,5 +28,19 @@ namespace DotnetSelenium
 
             
         }
+
+        [Test]
+        public void Test2()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://www.google.com");
+            driver.Manage().Window.Maximize();
+            //IWebElement searchBox = driver.FindElement(By.Name("q"));
+            SeleniumCustomMethods.Click(driver, By.Name("q"));
+            //searchBox.SendKeys("selenium");
+            SeleniumCustomMethods.EnterText(driver, By.Name("q"), "selenium");
+            //searchBox.SendKeys(Keys.Return);
+            SeleniumCustomMethods.Submit(driver, By.Name("q"));
+        }
     }
 }
